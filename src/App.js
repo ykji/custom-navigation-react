@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import Link from "./component/Link";
+import Page1 from "./component/Page1";
+import Page2 from "./component/Page2";
+import Route from "./component/Route";
 
 function App() {
+  const navStyles = {
+    display: "flex",
+    margin: "10px",
+    gap: "15px",
+    fontSize:'20px',
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div style={navStyles}>
+        <Link to="/page1">Page 1</Link>
+        <Link to="/page2">Page 2</Link>
+      </div>
+      <div>
+        <Route path="/page1">
+          <Page1 />
+        </Route>
+        <Route path="/page2">
+          <Page2 />
+        </Route>
+      </div>
     </div>
   );
 }
